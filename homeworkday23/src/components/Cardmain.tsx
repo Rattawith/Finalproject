@@ -62,6 +62,7 @@ function Cardmain() {
           <h2>{product.title}</h2>
           <p>{product.description}</p>
           <p>${product.price.toFixed(2)}</p>
+          <button>View</button><button>Edit</button>
         </div>
       ))}
     </div>

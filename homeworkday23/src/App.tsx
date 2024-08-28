@@ -1,11 +1,13 @@
 import Main from "./pages/Main"
+import Products from "./pages/Products"
 
 function App() {
   
 
   return (
     <>
-      <Main></Main>
+      {/* <Main></Main> */}
+      <Products></Products>
     </>
   )
 }
