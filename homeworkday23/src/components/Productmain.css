@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+  }
+ 
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 60px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+  
+.leftbar {
+    flex: 50%;
+}
+  
+.product-img {
+    text-align: center;
+}
+.product-img img {
+    width: 36vw;
+}
+  
+.stock {
+    padding-top: 42px;
+} 
+.stock h3 {
+    padding: 6px;
+}  
+.stock-barfull {
+    width: 95%;
+    height: 22px;
+    background-color: lightgray;
+    border-radius: 12px;
+}  
+.stock-bar {
+    height: 22px;
+    width: 50%;
+    text-align: center;
+    background-color: rgb(70, 130, 243);
+    border-radius: 8px 0 0 8px;
+}
+  
+.rightbar {
+    flex: 50%;
+    padding-top: 12px;
+}
+  
+.productname {
+    padding: 6px;
+    border: solid 1px #aaaaaa70;
+    border-radius: 6px;
+}
+  
+.productname h4 {
+    padding: 6px;
+}
+  
+.productname h2 {
+    padding: 6px;
+}
+  
+.productname p {
+    padding: 6px;
+}
+  
+.productname input {
+    margin: 6px;
+    padding: 8px;
+    border: solid 1px #aaa;
+    border-radius: 8px;
+    outline: none;
+}
+  
+.spec {
+    margin-top: 14px;
+    border: solid 1px #aaaaaa70;
+    border-radius: 6px;
+}
+  
+.spec h2 {
+    padding: 12px;
+    background-color: #aaaaaa48;
+    border-radius: 6px 6px 0 0;
+}
+  
+.spec h4 {
+    padding: 12px;
+    border-top: 1px solid #aaaaaabb;
+}
+  
+  /* .space{
+    border-top: 1px solid #aaaaaabb;
+  } */
+  
+.footer {
+    flex: 100%;
+    margin-top: 24px;
+}
+  
+.footer__head {
+    background-color: #aaaaaa70;
+    border-radius: 6px 6px 0 0;
+}
+  
+.footer__head h3 {
+    padding: 12px;
+}
+  
+.main__radio {
+    padding: 12px;
+    border: solid 1px #aaaaaa70;
+    border-top: 1px solid #aaaaaabb;
+    border-radius: 0 0 6px 6px;
+}
+  
+.main__radio #numVote {
+    margin: 8px;
+}
+
+button {
+    cursor: pointer;
+    padding: 8px;
+    border: solid 0;
+    border-radius: 8px;
+    background-color: #0d6efd;
+    color: #fff;
+    margin-left: 4px;
+}
+  
+button:hover {
+    background-color: #0b5ed7;
+}
+  
+.review {
+    margin-top: 24px;
+}
+  
+.main__userReviews {
+    border: solid 1px #aaaaaa70;
+    border-radius: 0 0 6px 6px;
+}
+  
+.main__userReviews h4 {
+    padding: 12px;
+    border-top: 1px solid #aaaaaabb;
+}
+  
+.main__userReviews p {
+    padding: 12px;
+}
+  
