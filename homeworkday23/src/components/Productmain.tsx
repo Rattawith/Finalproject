@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import "./Productmain.css";
 
 function Productmain() {
@@ -35,8 +36,8 @@ function Productmain() {
                 </p>
                 <h4>Price $99</h4>
                 <p>Quantity :</p>
-                <input type="number" />
-                <button type="submit">Add to Cart</button>
+                <input type="number" min={0} />
+                <Link to={"/payment"}><button type="submit">Add to Cart</button></Link>
             </div>
         </div>
         <div className="spec">
@@ -61,11 +62,11 @@ function Productmain() {
             <h3>Rate this Product</h3>
         </div>
         <div className="main__radio">
-            <input type="radio" id="numVote" />1
-            <input type="radio" id="numVote" />2
-            <input type="radio" id="numVote" />3
-            <input type="radio" id="numVote" />4
-            <input type="radio" id="numVote" />5
+            <input type="radio" id="numVote" name="vote" />1
+            <input type="radio" id="numVote" name="vote" />2
+            <input type="radio" id="numVote" name="vote" />3
+            <input type="radio" id="numVote" name="vote" />4
+            <input type="radio" id="numVote" name="vote" />5
             <button type="submit" id="submit">Submit Rating</button>
         </div>
         <div className="review">

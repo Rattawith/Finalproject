@@ -1,6 +1,6 @@
 import Cardmain from "../components/Cardmain"
 import Navmain from "../components/Navmain"
-import './Main.css';
+import "./Main.css";
 
 function main() {
   return (

@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import './Cardmain.css'; 
+
 
 interface Product {
   id: number;
@@ -62,7 +64,7 @@ function Cardmain() {
           <h2>{product.title}</h2>
           <p>{product.description}</p>
           <p>${product.price.toFixed(2)}</p>
-          <button>View</button><button>Edit</button>
+          <Link to={"/products"}><button>View</button><button>Edit</button></Link>
         </div>
       ))}
     </div>

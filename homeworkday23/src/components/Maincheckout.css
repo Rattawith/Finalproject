@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.address{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userinput h3{
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+.userinput p{
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.userinput input{
+    padding: 6px;
+    border-radius: 4px;
+    border: solid 1px #c5c5c5;
+    outline: none;
+    width: 100%;
+}
+.userinput select{
+    padding: 6px;
+    border-radius: 4px;
+    border: solid 1px #c5c5c5;
+    outline: none;
+}
+.userinput button {
+    display: flex;
+    cursor: pointer;
+    padding: 12px;
+    border: solid 0;
+    border-radius: 6px;
+    background-color: #0d6efd;
+    color: #fff;
+    margin: 6px;
+}
+  
+button:hover {
+    background-color: #0b5ed7;
+}
