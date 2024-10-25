@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;  
+}
+
+.header {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    background-color: #aaaaaad7;
+    padding: 10px 20px;
+}
+
+.header_bar {
+    display: flex;
+    align-items: center;   
+}
+
+.header_bar img {
+    width: 60%;
+}
+
+.header_bar a {
+    text-decoration: none;
+    font-size: 24px;
+    color: #ffffffe1;
+    margin-left: 24px;
+}
+
+.header_icon_hide {
+    display: flex; /* ใช้ flex เพื่อจัดตำแหน่งไอคอน */
+    align-items: center;
+}
+
+.header_icon_hide img {
+    padding: 6px;
+    margin-left: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .profile-icon {
+        display: none; /* ซ่อนไอคอนโปรไฟล์เมื่อหน้าจอลดขนาด */
+    }
+
+    .menu-icon {
+        display: block; /* แสดงเมนูไอคอนเมื่อหน้าจอลดขนาด */
+    }
+}
+
+@media (min-width: 601px) {
+    .profile-icon {
+        display: block; /* แสดงไอคอนโปรไฟล์เมื่อหน้าจอมีขนาดปกติ */
+    }
+
+    .menu-icon {
+        display: none; /* ซ่อนไอคอนเมนูในขนาดหน้าจอปกติ */
+    }
+}
