@@ -1,11 +1,15 @@
-// import './Home.css';
+import './Home.css';
 import Header from '../components/Header';
+import Courses from '../components/Courses';
 
 function Home() {
   return (
-    <div>
-    
+    <>
+    <div className='container'>
+    <Header></Header>
+    <Courses></Courses>
     </div>
+    </>
   );
 }
 
