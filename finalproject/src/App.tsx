@@ -1,5 +1,4 @@
 import Home from './pages/Home';
-import Learning from './pages/Learning';
 import Profile from './pages/Profile';
 import Notfound from "./pages/Notfound";
 
@@ -12,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         {/* <Route path="/course/:id" element={< />} /> */}
-        <Route path="/learning/:id" element={<Learning />} />
+        {/* <Route path="/learning/:id" element={<Learning />} /> */}
         <Route path="/api" element={<Testapi />} />
         <Route path="*" element={<Notfound></Notfound>}></Route>
       </Routes>

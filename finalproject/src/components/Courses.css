@@ -2,8 +2,8 @@
     display: flex;
     justify-content: space-around;
     flex-flow: row wrap;
-    padding: 20px;
-    background-color: #cfcfcf21;
+    padding: 20px; 
+    align-items: center;
 }
   
 .card {
@@ -11,11 +11,9 @@
     border-radius: 8px;
     padding: 16px;
     margin: 12px;
-    max-width: 200px;
-    text-align: center;
+    width: 80%;
     margin-bottom: 20px;
-}
-  
+} 
 .card img {
     width: 100%;
     height: auto;
@@ -28,5 +26,5 @@
   border: solid 1px #ccc;
   border-radius: 6px;
   color: rgba(68, 68, 68, 0.966);
-  margin: 2px;
+  margin-top: 8px;
 }
