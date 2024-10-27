@@ -1,3 +1,7 @@
+*{
+    font-family: "Poppins", sans-serif;
+}
+
 .courseList {
     display: flex;
     justify-content: space-around;

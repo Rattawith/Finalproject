@@ -1,3 +1,5 @@
+<link rel="preconnect" href="https://fonts.googleapis.com"></link>
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
@@ -22,7 +24,7 @@ function Header() {
         <input type="search" />
       </div>
       <div className="header_icon_hide">
-        <Link to={"/"}>
+        <Link to={"#"}>
           <img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" alt="profile" className="profile-icon" />
         </Link>
         <button onClick={toggleCourses} className="menu_icon">

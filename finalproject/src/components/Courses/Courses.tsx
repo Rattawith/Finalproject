@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Courses.css';
+<link rel="preconnect" href="https://fonts.googleapis.com"></link>;
+
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "./Courses.css";
 
 interface Course {
   id: number;
@@ -13,20 +15,22 @@ interface Course {
 function Courses() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await fetch('https://47f5e36e-3a50-404d-b546-96459373518f-00-2euzu28oz8k9.sisko.replit.dev/courses');
+        const response = await fetch(
+          "https://47f5e36e-3a50-404d-b546-96459373518f-00-2euzu28oz8k9.sisko.replit.dev/courses"
+        );
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
         const data: Course[] = await response.json();
         setCourses(data);
       } catch (error) {
-        console.error('Error fetching courses:', error);
+        console.error("Error fetching courses:", error);
       } finally {
         setLoading(false);
       }
@@ -34,15 +38,17 @@ function Courses() {
 
     const fetchCategories = async () => {
       try {
-        const response = await fetch('https://47f5e36e-3a50-404d-b546-96459373518f-00-2euzu28oz8k9.sisko.replit.dev/categories');
+        const response = await fetch(
+          "https://47f5e36e-3a50-404d-b546-96459373518f-00-2euzu28oz8k9.sisko.replit.dev/categories"
+        );
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
         const data: string[] = await response.json();
         console.log("หมวดหมู่:", data); // ตรวจสอบข้อมูลหมวดหมู่ที่ได้จาก API
         setCategories(data);
       } catch (error) {
-        console.error('Error fetching categories:', error);
+        console.error("Error fetching categories:", error);
       }
     };
 
@@ -50,12 +56,14 @@ function Courses() {
     fetchCategories();
   }, []);
 
-  const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleCategoryChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
     setSelectedCategory(event.target.value);
   };
 
   const filteredCourses = selectedCategory
-    ? courses.filter(course => course.category === selectedCategory)
+    ? courses.filter((course) => course.category === selectedCategory)
     : courses;
 
   if (loading) {
@@ -78,12 +86,13 @@ function Courses() {
       <div className="courseList">
         {filteredCourses.map((course) => (
           <div key={course.id} className="card">
-            <img src={course.img} alt={course.name} /> {/* แก้ไขที่นี่เพื่อแสดงภาพ */}
+            <img src={course.img} alt={course.name} />{" "}
+            {/* แก้ไขที่นี่เพื่อแสดงภาพ */}
             <h2>{course.name}</h2>
             <p>{course.description}</p>
             <p>หมวดหมู่: {course.category}</p>
-            <Link to={`/${course.id}`}> {/* เปลี่ยนลิงก์เพื่อชี้ไปที่รายละเอียดของแต่ละหลักสูตร */}
-              <button>ดูเพิ่มเติม</button>
+            <Link to={`/test/${course.id}`}>
+              <button>Open Access</button>
             </Link>
           </div>
         ))}

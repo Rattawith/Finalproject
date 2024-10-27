@@ -1,6 +1,6 @@
 import './Home.css';
-import Header from '../components/Header';
-import Courses from '../components/Courses';
+import Header from '../components/Header/Header';
+import Courses from '../components/Courses/Courses';
 
 
 function Home() {
