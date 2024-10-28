@@ -2,7 +2,7 @@
 
 import './Lerning.css'
 
-function Lerning() {
+function Python01() {
   return (
     <>
     <iframe width="958" height="539" src="https://www.youtube.com/embed/xkZMUX_oQX4?si=dOKBmPGwweNv0NvI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -11,4 +11,4 @@ function Lerning() {
   )
 }
 
-export default Lerning
+export default Python01

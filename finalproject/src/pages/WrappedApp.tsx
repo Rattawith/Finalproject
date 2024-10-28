@@ -4,7 +4,7 @@ import App from "../App";
 function WrappedApp() {
   return (
     <BrowserRouter>
-      <App></App>
+      <App />
     </BrowserRouter>
   );
 }

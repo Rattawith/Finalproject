@@ -91,7 +91,7 @@ function Courses() {
             <h2>{course.name}</h2>
             <p>{course.description}</p>
             <p>หมวดหมู่: {course.category}</p>
-            <Link to={`/test/${course.id}`}>
+            <Link to={`/introductions/${course.id}`}>
               <button>Open Access</button>
             </Link>
           </div>

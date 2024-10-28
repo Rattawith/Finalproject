@@ -11,7 +11,7 @@ import Python07 from '../components/Python/Python07';
 import Python08 from '../components/Python/Python08';
 import Python09 from '../components/Python/Python09';
 
-function Educations() {
+function Educations_Python() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const courseId = params.get('courseId');
@@ -33,4 +33,4 @@ function Educations() {
   );
 }
 
-export default Educations;
+export default Educations_Python;
