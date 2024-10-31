@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './About.css'
 
 
-function About_machinelearning() {
+function About_Machinelearning() {
   return (
     <>
     <div className='about'>
@@ -34,4 +34,4 @@ function About_machinelearning() {
   )
 }
 
-export default About_machinelearning;
+export default About_Machinelearning;

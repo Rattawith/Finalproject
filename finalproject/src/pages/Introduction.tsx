@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
-import About_Python from '../components/About/About_python';
-import About_JavaScript from '../components/About/About_javascript';
+import About_Python from '../components/About/About_Python';
+import About_JavaScript from '../components/About/About_Javascript';
 import Header from '../components/Header/Header';
-import About_Machinelearning from '../components/About/About_machinelearning';
+import About_Machinelearning from '../components/About/About_Machinelearning';
 import About_DataScience_R from '../components/About/About_DataScience_R';
 
 function Introduction() {

@@ -9,7 +9,7 @@
     flex: 1;
     align-items: center;
     text-align: center;
-    background-color: #aaaaaad7;
+    background-color: rgba(46, 46, 46, 0.438);
     padding: 6px 12px;
 }
 .header_bar {
@@ -47,7 +47,7 @@
 
 .header_icon_hide img {
     margin: 20px;
-    width: 2.4vw;
+    width: 2.6vw;
 }
 .menu_icon{
     background-color: #aaaaaa00;

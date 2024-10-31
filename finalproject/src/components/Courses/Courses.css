@@ -2,24 +2,51 @@
     font-family: "Poppins", sans-serif;
 }
 
+.filter{
+    display: block;
+    text-align: center;
+    background-color: rgba(65, 65, 65, 0.466);
+}
+.filter select{
+    border-radius: 6px;
+    border: solid 2px rgb(233, 233, 233);
+    padding: 6px;
+    font-size: clamp(12px, 2vw, 16px);
+    background-color: rgb(156, 156, 156);
+    margin:22px;
+}
+
 .courseList {
     display: flex;
     justify-content: space-around;
     flex-flow: row wrap;
     padding: 20px; 
     align-items: center;
+    background-color: rgba(65, 65, 65, 0.466);
+}
+.courseList img {
+    width: 62%;
+    display: block;
+    margin: 0 auto; 
 }
   
 .card {
-    border: 1px solid #ccc;
+    background-color: #ffffff;
+    border: 2px solid #000000;
     border-radius: 8px;
     padding: 16px;
     margin: 12px;
-    width: 80%;
+    width: 66%;
     margin-bottom: 20px;
-} 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card h2{
+    margin-top: 20px;
+}
+.card p{
+    margin: 4px;
+}
 .card img {
-    width: 100%;
     height: auto;
     border-radius: 8px 8px 0 0;
 }
@@ -30,5 +57,6 @@
   border: solid 1px #ccc;
   border-radius: 6px;
   color: rgba(68, 68, 68, 0.966);
-  margin-top: 8px;
+  margin-top: 12px;
 }
+
