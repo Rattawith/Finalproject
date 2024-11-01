@@ -4,12 +4,17 @@ function Datascience_R_01() {
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [isCompleted, setIsCompleted] = useState<boolean>(false);
+  const [isCompleted, setIsCompleted] = useState<boolean>(
+    () => JSON.parse(localStorage.getItem("Datascience_R_01_isCompleted") || "false")
+  );
+  const [lastPlayedTime, setLastPlayedTime] = useState<number>(
+    () => parseFloat(localStorage.getItem("Datascience_R_01_lastPlayedTime") || "0")
+  );
 
   useEffect(() => {
     const fetchVideoData = async () => {
       try {
-        const response = await fetch('https://47f5e36e-3a50-404d-b546-96459373518f-00-2euzu28oz8k9.sisko.replit.dev/courses');
+        const response = await fetch('https://0bc08ff7-4842-458f-bbec-09b3e5dbf83e-00-3lz25gv4l2lkt.sisko.replit.dev/courses');
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -29,21 +34,27 @@ function Datascience_R_01() {
 
     fetchVideoData();
     
-    // โหลด YouTube API
     if (!(window as any).YT) {
       const tag = document.createElement('script');
       tag.src = "https://www.youtube.com/iframe_api";
       document.body.appendChild(tag);
     }
 
-    // สร้าง player instance เมื่อ API และ videoUrl พร้อม
     const createPlayer = () => {
       if (videoUrl && (window as any).YT) {
-        new (window as any).YT.Player('youtube-player', {
+        const player = new (window as any).YT.Player('youtube-player', {
           events: {
+            'onReady': () => {
+              player.seekTo(lastPlayedTime, true);
+            },
             'onStateChange': (event: any) => {
+              if (event.data === (window as any).YT.PlayerState.PAUSED || event.data === (window as any).YT.PlayerState.ENDED) {
+                const currentTime = player.getCurrentTime();
+                localStorage.setItem("Datascience_R_01_lastPlayedTime", currentTime.toString());
+              }
               if (event.data === (window as any).YT.PlayerState.ENDED) {
-                setIsCompleted(true); // ตั้งค่าเป็น true เมื่อเล่นจบ
+                setIsCompleted(true);
+                localStorage.setItem("Datascience_R_01_isCompleted", JSON.stringify(true));
               }
             }
           }
@@ -51,12 +62,10 @@ function Datascience_R_01() {
       }
     };
 
-    // เรียกใช้ createPlayer เมื่อ API พร้อม
     (window as any).onYouTubeIframeAPIReady = () => {
       createPlayer();
     };
 
-    // เรียกใช้ createPlayer อีกครั้งเมื่อ videoUrl มีค่า
     if (videoUrl) {
       createPlayer();
     }

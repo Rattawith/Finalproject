@@ -5,7 +5,6 @@
 .filter{
     display: block;
     text-align: center;
-    background-color: rgba(65, 65, 65, 0.466);
 }
 .filter select{
     border-radius: 6px;
@@ -22,7 +21,6 @@
     flex-flow: row wrap;
     padding: 20px; 
     align-items: center;
-    background-color: rgba(65, 65, 65, 0.466);
 }
 .courseList img {
     width: 62%;

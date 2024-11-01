@@ -22,7 +22,7 @@ function Courses() {
     const fetchCourses = async () => {
       try {
         const response = await fetch(
-          "https://47f5e36e-3a50-404d-b546-96459373518f-00-2euzu28oz8k9.sisko.replit.dev/courses"
+          "https://0bc08ff7-4842-458f-bbec-09b3e5dbf83e-00-3lz25gv4l2lkt.sisko.replit.dev/courses"
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -39,7 +39,7 @@ function Courses() {
     const fetchCategories = async () => {
       try {
         const response = await fetch(
-          "https://47f5e36e-3a50-404d-b546-96459373518f-00-2euzu28oz8k9.sisko.replit.dev/categories"
+          "https://0bc08ff7-4842-458f-bbec-09b3e5dbf83e-00-3lz25gv4l2lkt.sisko.replit.dev/categories"
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");

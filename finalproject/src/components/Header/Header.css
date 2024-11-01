@@ -9,7 +9,7 @@
     flex: 1;
     align-items: center;
     text-align: center;
-    background-color: rgba(46, 46, 46, 0.438);
+    background-color: rgba(56, 56, 56, 0.671);
     padding: 6px 12px;
 }
 .header_bar {
@@ -47,14 +47,19 @@
 
 .header_icon_hide img {
     margin: 20px;
-    width: 2.6vw;
+    width: 2.8vw;
 }
 .menu_icon{
     background-color: #aaaaaa00;
     padding: 0;
     border: none;
 }
-.menu_icon:focus {outline:0;}
+.menu_icon:focus {
+    outline:0;
+}
+.menu_icon img {
+    width: 4.8vw;
+}
 
 /* Responsive Styles */
 @media (max-width: 600px) {
