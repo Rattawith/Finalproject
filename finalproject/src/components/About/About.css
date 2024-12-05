@@ -1,69 +1,101 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
 body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
   min-height: 100vh;
-  background-color: #2c2c2c;
+  background-color: rgb(22, 28, 36);
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden;
 }
 
 .about {
-  width: 100%;
+  width: 90%;
   max-width: 1600px;
   margin: 0 auto;
+  margin-top: 18px;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.37);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.37);
+  background-color: rgb(33, 43, 54);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
 }
-
 .about h2 {
-  color: #ffffff; 
-  border-bottom: 2px solid #ffffff;
+  color: rgb(255, 255, 255); 
+  border-bottom: 2px solid rgb(255, 255, 255); 
   padding-bottom: 8px;
   margin-bottom: 20px;
   font-size: 1.8rem;
 }
-
-.about-description {
-  line-height: 1.6;
-  font-size: 1rem;
-  color: rgb(255, 255, 255);
-  margin-bottom: 20px;
-}
-
 .about h3 {
-  color: #ffffff; 
+  color: rgb(255, 255, 255); 
   font-size: 1.4rem;
   margin: 20px 0 8px;
+}
+.about a {
+  display: inline-block;
+  text-decoration: none;
+  margin-left: 8px;
+  color: rgb(33, 43, 54);
+  background-color: rgb(255, 192, 0);
+  padding: 12px 20px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 20px;
+  outline: 0px;
+  transition: background-color 0.24s ease;
+}
+.about a:hover {
+  background-color: rgb(183, 129, 3);
+    text-decoration: none;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.about h3::before {
+  content: "• ";
+  color: rgb(255, 255, 255); 
 }
 
 .course-duration{
   line-height: 1.6;
   font-size: 1rem;
-  color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255); 
   margin-bottom: 8px;
+  margin-left: 12px;
 }
 
-.about a {
-  display: inline-block;
-  color: #ffffff;
-  background-color: #000000b4; 
-  padding: 8px 12px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.24s ease;
+.about-description {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: rgb(255, 255, 255); 
+  margin-bottom: 20px;
 }
 
-.about a:hover {
-  background-color: #969696; 
+
+@media (max-width: 768px) {
+  .about {
+    padding: 15px;
+  }
+
+  .about h2, .about h3 {
+    font-size: 1.6rem;
+  }
+
+  .about-description,
+  .course-duration {
+    font-size: 0.9rem;
+  }
 }
 
-.about h3::before {
-  content: "• ";
-  color: #ffffff;
+@media (max-width: 480px) {
+  .about {
+    padding: 10px;
+  }
+
+  .about h2, .about h3 {
+    font-size: 1.4rem;
+  }
+
+  .about-description,
+  .course-duration {
+    font-size: 0.8rem;
+  }
 }

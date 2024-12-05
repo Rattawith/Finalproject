@@ -73,6 +73,7 @@ function Courses() {
   return (
     <div>
       <div className="filter">
+      <p>หมวดหมู่</p>
         <select onChange={handleCategoryChange} value={selectedCategory}>
           <option value="">แสดงทั้งหมด</option>
           {categories.map((category) => (
@@ -90,7 +91,7 @@ function Courses() {
             {/* แก้ไขที่นี่เพื่อแสดงภาพ */}
             <h2>{course.name}</h2>
             <p>{course.description}</p>
-            <p>หมวดหมู่: {course.category}</p>
+            <p>หมวดหมู่ : {course.category}</p>
             <Link to={`/introductions/${course.id}`}>
               <button>Open Access</button>
             </Link>

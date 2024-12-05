@@ -1,18 +1,26 @@
-*{
-    font-family: "Poppins", sans-serif;
-}
-
 .filter{
     display: block;
     text-align: center;
 }
+.filter p{
+    margin-top: 18px;
+    padding: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    margin-right: 180px;
+}
 .filter select{
-    border-radius: 6px;
-    border: solid 2px rgb(233, 233, 233);
-    padding: 6px;
-    font-size: clamp(12px, 2vw, 16px);
-    background-color: rgb(156, 156, 156);
-    margin:22px;
+    box-shadow: none;
+    padding: 8px 6px;
+    font-size: 1rem;
+    background-color: rgb(33, 43, 54);
+    color: rgb(145, 158, 171);
+    outline: none;
+    border: 1px solid rgba(145, 158, 171, 0.5);
+}
+.filter select:focus{
+    border: solid 1px rgb(255, 192, 0);
 }
 
 .courseList {
@@ -23,26 +31,29 @@
     align-items: center;
 }
 .courseList img {
-    width: 62%;
+    width: 54%;
     display: block;
     margin: 0 auto; 
 }
   
 .card {
-    background-color: #ffffff;
-    border: 2px solid #000000;
-    border-radius: 8px;
-    padding: 16px;
+    background-color: rgb(33, 43, 54);
+    border: 0 solid ;
+    border-radius: 15px;
+    padding: 18px;
     margin: 12px;
     width: 66%;
     margin-bottom: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
 }
 .card h2{
-    margin-top: 20px;
+    margin: 12px;
+    color: rgba(255, 255, 255);
 }
 .card p{
-    margin: 4px;
+    margin: 12px;
+    color: rgb(145, 158, 171);;
 }
 .card img {
     height: auto;
@@ -50,11 +61,21 @@
 }
 
 .courseList button{
+  margin: 12px;  
   font-weight: bold;
   font-size: 14px;
-  border: solid 1px #ccc;
-  border-radius: 6px;
-  color: rgba(68, 68, 68, 0.966);
+  border-radius: 20px;
+  color: rgb(33, 43, 54);
+  background-color: rgb(255, 192, 0);
   margin-top: 12px;
+  padding: 12px 16px;
+  text-decoration: none;
+  outline: 0px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
 }
 
+.courseList button:hover{
+    background-color: rgb(183, 129, 3);
+    text-decoration: none;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}

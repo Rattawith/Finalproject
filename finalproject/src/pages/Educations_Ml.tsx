@@ -1,12 +1,12 @@
 import { useLocation } from 'react-router-dom';
 
 import Header from '../components/Header/Header';
-import Machine01 from '../components/Machine_Learning/Machine01';
-import Machine02 from '../components/Machine_Learning/Machine02';
-import Machine03 from '../components/Machine_Learning/Machine03';
-import Machine04 from '../components/Machine_Learning/Machine04';
-import Machine05 from '../components/Machine_Learning/Machine05';
-import Machine06 from '../components/Machine_Learning/Machine06';
+import Machine01 from '../components/Pack_Courses/Machine_Learning/Machine01';
+import Machine02 from '../components/Pack_Courses/Machine_Learning/Machine02';
+import Machine03 from '../components/Pack_Courses/Machine_Learning/Machine03';
+import Machine04 from '../components/Pack_Courses/Machine_Learning/Machine04';
+import Machine05 from '../components/Pack_Courses/Machine_Learning/Machine05';
+import Machine06 from '../components/Pack_Courses/Machine_Learning/Machine06';
 
 
 function Educations_Ml() {

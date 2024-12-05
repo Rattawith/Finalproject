@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import '../Pack_Courses.css'
 
-function Python08() {
+function Python03() {
   const [videoUrls, setVideoUrls] = useState<string[]>([]);
   const [currentVideoUrl, setCurrentVideoUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [isCompleted, setIsCompleted] = useState<boolean>(
-    () => JSON.parse(localStorage.getItem("Python08_isCompleted") || "false")
+    () => JSON.parse(localStorage.getItem("Python03_isCompleted") || "false")
   );
   const [lastPlayedTime, setLastPlayedTime] = useState<number>(
-    () => parseFloat(localStorage.getItem("Python08_lastPlayedTime") || "0")
+    () => parseFloat(localStorage.getItem("Python03_lastPlayedTime") || "0")
   );
 
   useEffect(() => {
@@ -24,7 +25,7 @@ function Python08() {
         const courseData = data.find((course: any) => course.id === 1); // เปลี่ยนเป็น id ที่ต้องการ
         if (courseData && courseData.videoUrls) {
           setVideoUrls(courseData.videoUrls);
-          setCurrentVideoUrl(courseData.videoUrls[7]); // ตั้งค่าเริ่มต้นวิดีโอ
+          setCurrentVideoUrl(courseData.videoUrls[2]); // ตั้งค่าเริ่มต้นวิดีโอ
         }
       } catch (error) {
         console.error("Error fetching video data:", error);
@@ -54,11 +55,11 @@ function Python08() {
             'onStateChange': (event: any) => {
               if (event.data === (window as any).YT.PlayerState.PAUSED || event.data === (window as any).YT.PlayerState.ENDED) {
                 const currentTime = player.getCurrentTime();
-                localStorage.setItem("Python08_lastPlayedTime", currentTime.toString());
+                localStorage.setItem("Python03_lastPlayedTime", currentTime.toString());
               }
               if (event.data === (window as any).YT.PlayerState.ENDED) {
                 setIsCompleted(true);
-                localStorage.setItem("Python08_isCompleted", JSON.stringify(true));
+                localStorage.setItem("Python03_isCompleted", JSON.stringify(true));
               }
             }
           }
@@ -83,17 +84,22 @@ function Python08() {
   }
 
   if (error) {
-    return <p>{error}</p>;
+    return <p className="error-message">{error}</p>;
   }
 
   return (
     <>
-      {currentVideoUrl ? (
-        <div>
+      {currentVideoUrl && (
+        <div className="video-container">
+        <div className="video-content">
+          <h2>Lecture 3 : Python - Syntax</h2>
+          {isCompleted && (
+              <p className="completion-message">Complete ✅</p>
+            )}
+        </div>
+        <div className="iframe-wrapper">
           <iframe
             id="youtube-player"
-            width="958"
-            height="539"
             src={currentVideoUrl}
             title="YouTube video player"
             frameBorder="0"
@@ -102,14 +108,10 @@ function Python08() {
             allowFullScreen
           ></iframe>
         </div>
-      ) : (
-        <p>ไม่พบวิดีโอ</p>
+      </div>
       )}
-
-      <h2>Lecture 8 : Python - Output Variables with print()</h2>
-      {isCompleted && <p>✅ เรียนจบแล้ว</p>} {/* แสดงสถานะการเรียนรู้ */}
     </>
   );
 }
 
-export default Python08;
+export default Python03;

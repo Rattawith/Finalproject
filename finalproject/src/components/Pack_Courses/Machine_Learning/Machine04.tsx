@@ -1,21 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
+import '../Pack_Courses.css'
 
-function Machine01() {
+function Machine04() {
   const [videoUrls, setVideoUrls] = useState<string[]>([]);
   const [currentVideoUrl, setCurrentVideoUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [isCompleted, setIsCompleted] = useState<boolean>(
-    () => JSON.parse(localStorage.getItem("Machine01_isCompleted") || "false")
+  const [isCompleted, setIsCompleted] = useState<boolean>(() =>
+    JSON.parse(localStorage.getItem("Machine04_isCompleted") || "false")
   );
-  const [lastPlayedTime, setLastPlayedTime] = useState<number>(
-    () => parseFloat(localStorage.getItem("Machine01_lastPlayedTime") || "0")
+  const [lastPlayedTime, setLastPlayedTime] = useState<number>(() =>
+    parseFloat(localStorage.getItem("Machine04_lastPlayedTime") || "0")
   );
 
   useEffect(() => {
     const fetchVideoData = async () => {
       try {
-        const response = await fetch('https://0bc08ff7-4842-458f-bbec-09b3e5dbf83e-00-3lz25gv4l2lkt.sisko.replit.dev/courses');
+        const response = await fetch(
+          "https://0bc08ff7-4842-458f-bbec-09b3e5dbf83e-00-3lz25gv4l2lkt.sisko.replit.dev/courses"
+        );
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -24,7 +27,7 @@ function Machine01() {
         const courseData = data.find((course: any) => course.id === 3); // เปลี่ยนเป็น id ที่ต้องการ
         if (courseData && courseData.videoUrls) {
           setVideoUrls(courseData.videoUrls);
-          setCurrentVideoUrl(courseData.videoUrls[0]); // ตั้งค่าเริ่มต้นวิดีโอ
+          setCurrentVideoUrl(courseData.videoUrls[3]); // ตั้งค่าเริ่มต้นวิดีโอ
         }
       } catch (error) {
         console.error("Error fetching video data:", error);
@@ -38,7 +41,7 @@ function Machine01() {
 
     // โหลด YouTube API
     if (!(window as any).YT) {
-      const tag = document.createElement('script');
+      const tag = document.createElement("script");
       tag.src = "https://www.youtube.com/iframe_api";
       document.body.appendChild(tag);
     }
@@ -46,22 +49,31 @@ function Machine01() {
     // สร้าง player instance เมื่อ API และ videoUrl พร้อม
     const createPlayer = () => {
       if (currentVideoUrl && (window as any).YT) {
-        const player = new (window as any).YT.Player('youtube-player', {
+        const player = new (window as any).YT.Player("youtube-player", {
           events: {
-            'onReady': () => {
+            onReady: () => {
               player.seekTo(lastPlayedTime, true); // ตั้งเวลาเริ่มต้นเมื่อโหลดเสร็จ
             },
-            'onStateChange': (event: any) => {
-              if (event.data === (window as any).YT.PlayerState.PAUSED || event.data === (window as any).YT.PlayerState.ENDED) {
+            onStateChange: (event: any) => {
+              if (
+                event.data === (window as any).YT.PlayerState.PAUSED ||
+                event.data === (window as any).YT.PlayerState.ENDED
+              ) {
                 const currentTime = player.getCurrentTime();
-                localStorage.setItem("Machine01_lastPlayedTime", currentTime.toString());
+                localStorage.setItem(
+                  "Machine04_lastPlayedTime",
+                  currentTime.toString()
+                );
               }
               if (event.data === (window as any).YT.PlayerState.ENDED) {
                 setIsCompleted(true);
-                localStorage.setItem("Machine01_isCompleted", JSON.stringify(true));
+                localStorage.setItem(
+                  "Machine04_isCompleted",
+                  JSON.stringify(true)
+                );
               }
-            }
-          }
+            },
+          },
         });
       }
     };
@@ -75,7 +87,6 @@ function Machine01() {
     if (currentVideoUrl) {
       createPlayer();
     }
-
   }, [currentVideoUrl]);
 
   if (loading) {
@@ -83,17 +94,22 @@ function Machine01() {
   }
 
   if (error) {
-    return <p>{error}</p>;
+    return <p className="error-message">{error}</p>;
   }
 
   return (
     <>
-      {currentVideoUrl ? (
-        <div>
+      {currentVideoUrl && (
+        <div className="video-container">
+        <div className="video-content">
+          <h2>Lecture 4 : ML - Scatter Plot</h2>
+          {isCompleted && (
+              <p className="completion-message">Complete ✅</p>
+            )}
+        </div>
+        <div className="iframe-wrapper">
           <iframe
             id="youtube-player"
-            width="958"
-            height="539"
             src={currentVideoUrl}
             title="YouTube video player"
             frameBorder="0"
@@ -102,14 +118,10 @@ function Machine01() {
             allowFullScreen
           ></iframe>
         </div>
-      ) : (
-        <p>ไม่พบวิดีโอ</p>
+      </div>
       )}
-
-      <h2>Lecture 1 : ML - Mean, Median and Mode</h2>
-      {isCompleted && <p>✅ เรียนจบแล้ว</p>} {/* แสดงสถานะการเรียนรู้ */}
     </>
   );
 }
 
-export default Machine01;
+export default Machine04;

@@ -29,7 +29,7 @@ function About_Python() {
     <Link to="/educations_python?courseId=06">Click</Link>
     <h3>07 Python - Assign Multiple Values to Variables</h3>
     <p className="course-duration">1 นาที</p>
-    <Link to="educations_python?courseId=07">Click</Link>
+    <Link to="/educations_python?courseId=07">Click</Link>
     <h3>08 Python - Output Variables with print()</h3>
     <p className="course-duration">1 นาที</p>
     <Link to="/educations_python?courseId=08">Click</Link>

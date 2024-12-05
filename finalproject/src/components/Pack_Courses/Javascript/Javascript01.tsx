@@ -1,25 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
+import "../Pack_Courses.css";
 
 function Javascript01() {
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [isCompleted, setIsCompleted] = useState<boolean>(
-    () => JSON.parse(localStorage.getItem("Javascript01_isCompleted") || "false")
+  const [isCompleted, setIsCompleted] = useState<boolean>(() =>
+    JSON.parse(localStorage.getItem("Javascript01_isCompleted") || "false")
   );
-  const [lastPlayedTime, setLastPlayedTime] = useState<number>(
-    () => parseFloat(localStorage.getItem("Javascript01_lastPlayedTime") || "0")
+  const [lastPlayedTime, setLastPlayedTime] = useState<number>(() =>
+    parseFloat(localStorage.getItem("Javascript01_lastPlayedTime") || "0")
   );
 
   useEffect(() => {
     const fetchVideoData = async () => {
       try {
-        const response = await fetch('https://0bc08ff7-4842-458f-bbec-09b3e5dbf83e-00-3lz25gv4l2lkt.sisko.replit.dev/courses');
+        const response = await fetch(
+          "https://0bc08ff7-4842-458f-bbec-09b3e5dbf83e-00-3lz25gv4l2lkt.sisko.replit.dev/courses"
+        );
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        
+
         const courseData = data.find((course: any) => course.id === 2);
         if (courseData && courseData.videoUrl) {
           setVideoUrl(courseData.videoUrl);
@@ -33,31 +36,40 @@ function Javascript01() {
     };
 
     fetchVideoData();
-    
+
     if (!(window as any).YT) {
-      const tag = document.createElement('script');
+      const tag = document.createElement("script");
       tag.src = "https://www.youtube.com/iframe_api";
       document.body.appendChild(tag);
     }
 
     const createPlayer = () => {
       if (videoUrl && (window as any).YT) {
-        const player = new (window as any).YT.Player('youtube-player', {
+        const player = new (window as any).YT.Player("youtube-player", {
           events: {
-            'onReady': () => {
+            onReady: () => {
               player.seekTo(lastPlayedTime, true); // ตั้งเวลาเริ่มต้นเมื่อโหลดเสร็จ
             },
-            'onStateChange': (event: any) => {
-              if (event.data === (window as any).YT.PlayerState.PAUSED || event.data === (window as any).YT.PlayerState.ENDED) {
+            onStateChange: (event: any) => {
+              if (
+                event.data === (window as any).YT.PlayerState.PAUSED ||
+                event.data === (window as any).YT.PlayerState.ENDED
+              ) {
                 const currentTime = player.getCurrentTime();
-                localStorage.setItem("Javascript01_lastPlayedTime", currentTime.toString());
+                localStorage.setItem(
+                  "Javascript01_lastPlayedTime",
+                  currentTime.toString()
+                );
               }
               if (event.data === (window as any).YT.PlayerState.ENDED) {
                 setIsCompleted(true);
-                localStorage.setItem("Javascript01_isCompleted", JSON.stringify(true));
+                localStorage.setItem(
+                  "Javascript01_isCompleted",
+                  JSON.stringify(true)
+                );
               }
-            }
-          }
+            },
+          },
         });
       }
     };
@@ -69,7 +81,6 @@ function Javascript01() {
     if (videoUrl) {
       createPlayer();
     }
-
   }, [videoUrl, lastPlayedTime]);
 
   if (loading) {
@@ -77,17 +88,22 @@ function Javascript01() {
   }
 
   if (error) {
-    return <p>{error}</p>;
+    return <p className="error-message">{error}</p>;
   }
 
   return (
     <>
-      {videoUrl ? (
-        <div>
+      {videoUrl && (
+        <div className="video-container">
+        <div className="video-content">
+          <h2>Lecture 1 : Advanced JavaScript</h2>
+          {isCompleted && (
+              <p className="completion-message">Complete ✅</p>
+            )}
+        </div>
+        <div className="iframe-wrapper">
           <iframe
             id="youtube-player"
-            width="958"
-            height="539"
             src={videoUrl}
             title="YouTube video player"
             frameBorder="0"
@@ -96,12 +112,8 @@ function Javascript01() {
             allowFullScreen
           ></iframe>
         </div>
-      ) : (
-        <p>ไม่พบวิดีโอ</p>
+      </div>
       )}
-      
-      <h2>Lecture 2 : Advanced JavaScript</h2>
-      {isCompleted && <p>✅ เรียนจบแล้ว</p>}
     </>
   );
 }

@@ -6,13 +6,13 @@ import About_Machinelearning from '../components/About/About_Machinelearning';
 import About_DataScience_R from '../components/About/About_DataScience_R';
 
 function Introduction() {
-  const { id } = useParams<{ id: string }>(); // ใช้ string แทน number
-  const courseId = Number(id); // แปลง id เป็นหมายเลข
+  const { id } = useParams<{ id: string }>();
+  const courseId = Number(id);
 
   return (
-    <div className='container'>
+    <div className="container">
       <Header />
-      {courseId === 1 ? ( // เปลี่ยนเงื่อนไขให้ใช้หมายเลข
+      {courseId === 1 ? (
         <About_Python />
       ) : courseId === 2 ? (
         <About_JavaScript />

@@ -6,11 +6,11 @@
 
 .header {
     display: flex;
-    flex: 1;
     align-items: center;
     text-align: center;
-    background-color: rgba(56, 56, 56, 0.671);
-    padding: 6px 12px;
+    background-color: rgb(33, 43, 54);
+    padding-left: 24px;
+    padding-right: 24px;
 }
 .header_bar {
     display: flex;
@@ -22,22 +22,17 @@
     font-size: 24px;
     color: #ffffffe1;
 }
+.header_bar h5:hover{
+    color: rgb(255, 192, 0);
+    transition: 0.35s;
+}
 .header_bar img {
-    margin: 14px;
+    width: 4.8vw;
+    margin-top: 8px;
 }
 
 .header_bar_center {
-    flex-grow: 1; /* ทำให้ส่วนนี้ขยายตามขนาดหน้าจอ */
-    margin: 0 20px; /* เพิ่มช่องว่างซ้ายขวา */
-}
-
-.header_bar_center input[type="search"] {
-    width: 100%; /* ให้ช่องค้นหาขยายเต็มความกว้าง */
-    max-width: 600px; /* กำหนดความกว้างสูงสุด */
-    padding: 8px; /* เพิ่มช่องว่างภายใน */
-    border: 1px solid #ccc; /* ขอบของช่องค้นหา */
-    border-radius: 4px; /* ทำมุมให้โค้ง */
-    outline: none;
+    flex-grow: 1; 
 }
 
 .header_icon_hide {
@@ -58,8 +53,20 @@
     outline:0;
 }
 .menu_icon img {
-    width: 4.8vw;
+    width: 4.6vw;
 }
+
+.courses-list {
+    display: none;
+    background-color: rgb(33, 43, 54);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
+    padding: 10px;
+    font-size: 18px;
+  }
+.courses-list h5{
+    color: rgb(145, 158, 171);;
+}
+
 
 /* Responsive Styles */
 @media (max-width: 600px) {
@@ -74,30 +81,35 @@
 
 @media (min-width: 601px) {
     .profile-icon {
-        display: block; /* แสดงไอคอนโปรไฟล์เมื่อหน้าจอมีขนาดปกติ */
+        display: none; /* แสดงไอคอนโปรไฟล์เมื่อหน้าจอมีขนาดปกติ */
     }
 
     .menu-icon {
         display: none; /* ซ่อนไอคอนเมนูในขนาดหน้าจอปกติ */
     }
 }
-
-.courses-list {
-    display: none;
-    background-color: #cfcfcf67;
-    padding: 10px;
-    font-size: 18px;
-  }
-.courses-list h5{
-    color: #000000e1;
-}
   
-  @media (max-width: 600px) {
+@media (max-width: 600px) {
     .header_bar h5 {
       display: none; /* ซ่อนหลักสูตรทั้งหมดใน header */
     }
   
-    .courses-list {
+.courses-list {
       display: block;
     }
-  }
+}
+
+@media (max-width: 600px) {
+    .header_bar img {
+        width: 60px; /* ตั้งค่าความกว้างให้คงที่เพื่อให้ขนาดไม่เล็กเกินไป */
+        margin-top: 8px;
+    }
+
+    .profile-icon {
+        display: none; /* ซ่อนไอคอนโปรไฟล์เมื่อหน้าจอลดขนาด */
+    }
+
+    .menu-icon {
+        display: block; /* แสดงเมนูไอคอนเมื่อหน้าจอลดขนาด */
+    }
+}

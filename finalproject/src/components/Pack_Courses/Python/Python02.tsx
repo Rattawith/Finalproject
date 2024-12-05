@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import '../Pack_Courses.css'
 
-function Machine06() {
+function Python02() {
   const [videoUrls, setVideoUrls] = useState<string[]>([]);
   const [currentVideoUrl, setCurrentVideoUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [isCompleted, setIsCompleted] = useState<boolean>(
-    () => JSON.parse(localStorage.getItem("Machine06_isCompleted") || "false")
+    () => JSON.parse(localStorage.getItem("Python02_isCompleted") || "false")
   );
   const [lastPlayedTime, setLastPlayedTime] = useState<number>(
-    () => parseFloat(localStorage.getItem("Machine06_lastPlayedTime") || "0")
+    () => parseFloat(localStorage.getItem("Python02_lastPlayedTime") || "0")
   );
 
   useEffect(() => {
@@ -21,10 +22,10 @@ function Machine06() {
         }
         const data = await response.json();
 
-        const courseData = data.find((course: any) => course.id === 3); // เปลี่ยนเป็น id ที่ต้องการ
+        const courseData = data.find((course: any) => course.id === 1); // เปลี่ยนเป็น id ที่ต้องการ
         if (courseData && courseData.videoUrls) {
           setVideoUrls(courseData.videoUrls);
-          setCurrentVideoUrl(courseData.videoUrls[5]); // ตั้งค่าเริ่มต้นวิดีโอ
+          setCurrentVideoUrl(courseData.videoUrls[1]); // ตั้งค่าเริ่มต้นวิดีโอ
         }
       } catch (error) {
         console.error("Error fetching video data:", error);
@@ -54,11 +55,11 @@ function Machine06() {
             'onStateChange': (event: any) => {
               if (event.data === (window as any).YT.PlayerState.PAUSED || event.data === (window as any).YT.PlayerState.ENDED) {
                 const currentTime = player.getCurrentTime();
-                localStorage.setItem("Machine06_lastPlayedTime", currentTime.toString());
+                localStorage.setItem("Python02_lastPlayedTime", currentTime.toString());
               }
               if (event.data === (window as any).YT.PlayerState.ENDED) {
                 setIsCompleted(true);
-                localStorage.setItem("Machine06_isCompleted", JSON.stringify(true));
+                localStorage.setItem("Python02_isCompleted", JSON.stringify(true));
               }
             }
           }
@@ -83,17 +84,22 @@ function Machine06() {
   }
 
   if (error) {
-    return <p>{error}</p>;
+    return <p className="error-message">{error}</p>;
   }
 
   return (
     <>
-      {currentVideoUrl ? (
-        <div>
+      {currentVideoUrl && (
+        <div className="video-container">
+        <div className="video-content">
+          <h2>Lecture 2 : Python - Get Started</h2>
+          {isCompleted && (
+              <p className="completion-message">Complete ✅</p>
+            )}
+        </div>
+        <div className="iframe-wrapper">
           <iframe
             id="youtube-player"
-            width="958"
-            height="539"
             src={currentVideoUrl}
             title="YouTube video player"
             frameBorder="0"
@@ -102,14 +108,10 @@ function Machine06() {
             allowFullScreen
           ></iframe>
         </div>
-      ) : (
-        <p>ไม่พบวิดีโอ</p>
+      </div>
       )}
-
-      <h2>Lecture 6 : ML - Polynomial Regression</h2>
-      {isCompleted && <p>✅ เรียนจบแล้ว</p>} {/* แสดงสถานะการเรียนรู้ */}
     </>
   );
 }
 
-export default Machine06;
+export default Python02;

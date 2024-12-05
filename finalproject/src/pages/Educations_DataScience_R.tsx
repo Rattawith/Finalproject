@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 
 import Header from '../components/Header/Header';
-import Datascience_R_01 from '../components/DataScience_R/DataScience_R_01';
+import Datascience_R_01 from '../components/Pack_Courses/DataScience_R/Datascience_R_01';
 
 
 function Educations_DataScience_R() {

@@ -1,0 +1,80 @@
+.video-container {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.video-content {
+  padding: 16px;
+  color: #fff;
+}
+
+.video-content h2 {
+  font-size: 1.5rem;
+  margin: 0 0 8px;
+}
+
+.video-content p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.iframe-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; 
+}
+
+.iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.completion-message {
+  color: #28a745; /* สีเขียว */
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+}
+
+
+/* สำหรับหน้าจอที่มีขนาดใหญ่ เช่น คอมพิวเตอร์ */
+@media (min-width: 1024px) {
+  .video-container {
+    max-width: 1780px;
+  }
+}
+
+/* สำหรับหน้าจอที่มีขนาดกลาง เช่น แท็บเล็ต */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .video-container {
+    width: 90%;
+    padding-bottom: 56.25%;
+  }
+  iframe {
+    height: 100%;
+  }
+}
+
+/* สำหรับหน้าจอที่มีขนาดเล็ก เช่น มือถือ */
+@media (max-width: 767px) {
+  .video-container {
+    width: 100%;
+    padding-bottom: 56.25%;
+  }
+  iframe {
+    height: 100%;
+  }
+}

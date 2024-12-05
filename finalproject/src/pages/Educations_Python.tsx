@@ -1,15 +1,15 @@
 import { useLocation } from 'react-router-dom';
 
 import Header from '../components/Header/Header';
-import Python01 from '../components/Python/Python01';
-import Python02 from '../components/Python/Python02';
-import Python03 from '../components/Python/Python03';
-import Python04 from '../components/Python/Python04';
-import Python05 from '../components/Python/Python05';
-import Python06 from '../components/Python/Python06';
-import Python07 from '../components/Python/Python07';
-import Python08 from '../components/Python/Python08';
-import Python09 from '../components/Python/Python09';
+import Python01 from '../components/Pack_Courses/Python/Python01';
+import Python02 from '../components/Pack_Courses/Python/Python02';
+import Python03 from '../components/Pack_Courses/Python/Python03';
+import Python04 from '../components/Pack_Courses/Python/Python04';
+import Python05 from '../components/Pack_Courses/Python/Python05';
+import Python06 from '../components/Pack_Courses/Python/Python06';
+import Python07 from '../components/Pack_Courses/Python/Python07';
+import Python08 from '../components/Pack_Courses/Python/Python08';
+import Python09 from '../components/Pack_Courses/Python/Python09';
 
 function Educations_Python() {
   const location = useLocation();
