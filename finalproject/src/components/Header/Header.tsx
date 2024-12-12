@@ -16,11 +16,11 @@ function Header() {
     <div className='header'>
       <div className='header_bar'>
         <Link to={"/"}>
-          <img src="https://cdn-icons-png.flaticon.com/128/16803/16803995.png" alt="logobrand" />
+          <img src="https://school.borntodev.com/logos/school-full-225x72.png" alt="logobrand" />
         </Link>
-        <Link to={"/"}><a href="#"><h5>หลักสูตรทั้งหมด</h5></a></Link>
       </div>
       <div className='header_bar_center'>
+      <Link to={"/"}><h5>หลักสูตรทั้งหมด</h5></Link>
       </div>
       <div className="header_icon_hide">
         <Link to={"#"}>

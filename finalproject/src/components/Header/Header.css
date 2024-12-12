@@ -12,36 +12,31 @@
     padding-left: 24px;
     padding-right: 24px;
 }
-.header_bar {
+
+.header_bar_center {
+    margin-left: 32px;
+    flex-grow: 1; 
     display: flex;
     align-items: center;
 }
-.header_bar h5 {
+.header_bar_center h5 {
     text-decoration: none;
-    padding-left: 14px;
-    font-size: 24px;
+    font-size: 18px;
     color: #ffffffe1;
 }
-.header_bar h5:hover{
+.header_bar_center h5:hover{
     color: rgb(255, 192, 0);
     transition: 0.35s;
 }
-.header_bar img {
-    width: 4.8vw;
-    margin-top: 8px;
-}
 
-.header_bar_center {
-    flex-grow: 1; 
-}
 
 .header_icon_hide {
     display: flex; 
     align-items: center;
+    margin: 12px;
 }
 
 .header_icon_hide img {
-    margin: 20px;
     width: 2.8vw;
 }
 .menu_icon{
@@ -56,6 +51,7 @@
     width: 4.6vw;
 }
 
+
 .courses-list {
     display: none;
     background-color: rgb(33, 43, 54);
@@ -64,7 +60,12 @@
     font-size: 18px;
   }
 .courses-list h5{
-    color: rgb(145, 158, 171);;
+    color: rgb(255, 255, 255);
+}
+.courses-list:hover{
+    background-color: rgb(255, 192, 0);
+    text-decoration: none;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -80,6 +81,10 @@
 }
 
 @media (min-width: 601px) {
+    .header_bar img {
+        width: 180px; /* ตั้งค่าความกว้างให้คงที่เพื่อให้ขนาดไม่เล็กเกินไป */
+        margin-top: 8px;
+    }
     .profile-icon {
         display: none; /* แสดงไอคอนโปรไฟล์เมื่อหน้าจอมีขนาดปกติ */
     }
@@ -90,18 +95,18 @@
 }
   
 @media (max-width: 600px) {
-    .header_bar h5 {
+    .header_bar_center h5 {
       display: none; /* ซ่อนหลักสูตรทั้งหมดใน header */
     }
   
-.courses-list {
+    .courses-list {
       display: block;
     }
 }
 
 @media (max-width: 600px) {
     .header_bar img {
-        width: 60px; /* ตั้งค่าความกว้างให้คงที่เพื่อให้ขนาดไม่เล็กเกินไป */
+        width: 100px; /* ตั้งค่าความกว้างให้คงที่เพื่อให้ขนาดไม่เล็กเกินไป */
         margin-top: 8px;
     }
 

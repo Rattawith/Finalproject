@@ -1,11 +1,42 @@
-#root{
+.page404{
     width: 100%;
-    color: black;
+    height: 100vh; 
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    color: rgb(255, 255, 255);
+    text-align: center;
 }
 
-h1{
-    padding: 4px;
+.middle img {
+    border-top: 1px solid rgba(145, 158, 171, 0.24);
+    margin-top: 18px;
+    padding: 12px;
+
+}
+.middle p{
+    color: rgb(145, 158, 171);
+    font-size: 0.75rem;
+    padding-bottom: 16px;
+}
+
+.bottom button{
+    margin: 12px;  
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 20px;
+    color: rgb(33, 43, 54);
+    background-color: rgb(255, 192, 0);
+    margin-top: 12px;
+    padding: 12px 16px;
+    text-decoration: none;
+    outline: 0px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+}
+
+.bottom button:hover{
+    background-color: rgb(183, 129, 3);
+    text-decoration: none;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }

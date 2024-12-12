@@ -7,6 +7,7 @@ import Educations_Javascript from "./pages/Educations_Javascript";
 import Educations_Ml from "./pages/Educations_Ml";
 import Educations_DataScience_R from "./pages/Educations_DataScience_R";
 
+import "./App.css";
 
 
 
