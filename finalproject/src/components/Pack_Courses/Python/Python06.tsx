@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import '../Pack_Courses.css'
+import { Link } from "react-router-dom";
+import "../Pack_Courses.css";
 
 function Python06() {
   const [videoUrls, setVideoUrls] = useState<string[]>([]);
@@ -101,24 +102,25 @@ function Python06() {
     <>
       {currentVideoUrl && (
         <div className="video-container">
-        <div className="video-content">
-          <h2>Lecture 6 : Python - Variable Names</h2>
-          {isCompleted && (
-              <p className="completion-message">Complete ✅</p>
-            )}
+          <div className="video-content">
+            <Link to="/introductions/1">
+              <button className="back-button">Go Back</button>
+            </Link>
+            <h2>Lecture 6 : Python - Variable Names</h2>
+            {isCompleted && <p className="completion-message">Complete ✅</p>}
+          </div>
+          <div className="iframe-wrapper">
+            <iframe
+              id="youtube-player"
+              src={currentVideoUrl}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
-        <div className="iframe-wrapper">
-          <iframe
-            id="youtube-player"
-            src={currentVideoUrl}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </div>
       )}
     </>
   );

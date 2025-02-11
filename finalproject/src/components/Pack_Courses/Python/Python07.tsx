@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import '../Pack_Courses.css'
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "../Pack_Courses.css";
 
 function Python07() {
   const [videoUrls, setVideoUrls] = useState<string[]>([]);
   const [currentVideoUrl, setCurrentVideoUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [isCompleted, setIsCompleted] = useState<boolean>(
-    () => JSON.parse(localStorage.getItem("Python07_isCompleted") || "false")
+  const [isCompleted, setIsCompleted] = useState<boolean>(() =>
+    JSON.parse(localStorage.getItem("Python07_isCompleted") || "false")
   );
-  const [lastPlayedTime, setLastPlayedTime] = useState<number>(
-    () => parseFloat(localStorage.getItem("Python07_lastPlayedTime") || "0")
+  const [lastPlayedTime, setLastPlayedTime] = useState<number>(() =>
+    parseFloat(localStorage.getItem("Python07_lastPlayedTime") || "0")
   );
 
   useEffect(() => {
@@ -41,7 +42,7 @@ function Python07() {
 
     // โหลด YouTube API
     if (!(window as any).YT) {
-      const tag = document.createElement('script');
+      const tag = document.createElement("script");
       tag.src = "https://www.youtube.com/iframe_api";
       document.body.appendChild(tag);
     }
@@ -49,22 +50,31 @@ function Python07() {
     // สร้าง player instance เมื่อ API และ videoUrl พร้อม
     const createPlayer = () => {
       if (currentVideoUrl && (window as any).YT) {
-        const player = new (window as any).YT.Player('youtube-player', {
+        const player = new (window as any).YT.Player("youtube-player", {
           events: {
-            'onReady': () => {
+            onReady: () => {
               player.seekTo(lastPlayedTime, true); // ตั้งเวลาเริ่มต้นเมื่อโหลดเสร็จ
             },
-            'onStateChange': (event: any) => {
-              if (event.data === (window as any).YT.PlayerState.PAUSED || event.data === (window as any).YT.PlayerState.ENDED) {
+            onStateChange: (event: any) => {
+              if (
+                event.data === (window as any).YT.PlayerState.PAUSED ||
+                event.data === (window as any).YT.PlayerState.ENDED
+              ) {
                 const currentTime = player.getCurrentTime();
-                localStorage.setItem("Python07_lastPlayedTime", currentTime.toString());
+                localStorage.setItem(
+                  "Python07_lastPlayedTime",
+                  currentTime.toString()
+                );
               }
               if (event.data === (window as any).YT.PlayerState.ENDED) {
                 setIsCompleted(true);
-                localStorage.setItem("Python07_isCompleted", JSON.stringify(true));
+                localStorage.setItem(
+                  "Python07_isCompleted",
+                  JSON.stringify(true)
+                );
               }
-            }
-          }
+            },
+          },
         });
       }
     };
@@ -78,7 +88,6 @@ function Python07() {
     if (currentVideoUrl) {
       createPlayer();
     }
-
   }, [currentVideoUrl]);
 
   if (loading) {
@@ -93,24 +102,25 @@ function Python07() {
     <>
       {currentVideoUrl && (
         <div className="video-container">
-        <div className="video-content">
-          <h2>Lecture 7 : Python - Assign Multiple Values to Variables</h2>
-          {isCompleted && (
-              <p className="completion-message">Complete ✅</p>
-            )}
+          <div className="video-content">
+            <Link to="/introductions/1">
+              <button className="back-button">Go Back</button>
+            </Link>
+            <h2>Lecture 7 : Python - Assign Multiple Values to Variables</h2>
+            {isCompleted && <p className="completion-message">Complete ✅</p>}
+          </div>
+          <div className="iframe-wrapper">
+            <iframe
+              id="youtube-player"
+              src={currentVideoUrl}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
-        <div className="iframe-wrapper">
-          <iframe
-            id="youtube-player"
-            src={currentVideoUrl}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </div>
       )}
     </>
   );

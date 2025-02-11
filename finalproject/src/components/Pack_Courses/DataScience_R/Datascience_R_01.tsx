@@ -1,26 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import '../Pack_Courses.css'
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; 
+import "../Pack_Courses.css";
 
 function Datascience_R_01() {
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [isCompleted, setIsCompleted] = useState<boolean>(
-    () => JSON.parse(localStorage.getItem("Datascience_R_01_isCompleted") || "false")
+  const [isCompleted, setIsCompleted] = useState<boolean>(() =>
+    JSON.parse(localStorage.getItem("Datascience_R_01_isCompleted") || "false")
   );
-  const [lastPlayedTime, setLastPlayedTime] = useState<number>(
-    () => parseFloat(localStorage.getItem("Datascience_R_01_lastPlayedTime") || "0")
+  const [lastPlayedTime, setLastPlayedTime] = useState<number>(() =>
+    parseFloat(localStorage.getItem("Datascience_R_01_lastPlayedTime") || "0")
   );
 
   useEffect(() => {
     const fetchVideoData = async () => {
       try {
-        const response = await fetch('https://0bc08ff7-4842-458f-bbec-09b3e5dbf83e-00-3lz25gv4l2lkt.sisko.replit.dev/courses');
+        const response = await fetch(
+          "https://0bc08ff7-4842-458f-bbec-09b3e5dbf83e-00-3lz25gv4l2lkt.sisko.replit.dev/courses"
+        );
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        
+
         const courseData = data.find((course: any) => course.id === 4);
         if (courseData && courseData.videoUrl) {
           setVideoUrl(courseData.videoUrl);
@@ -34,31 +37,40 @@ function Datascience_R_01() {
     };
 
     fetchVideoData();
-    
+
     if (!(window as any).YT) {
-      const tag = document.createElement('script');
+      const tag = document.createElement("script");
       tag.src = "https://www.youtube.com/iframe_api";
       document.body.appendChild(tag);
     }
 
     const createPlayer = () => {
       if (videoUrl && (window as any).YT) {
-        const player = new (window as any).YT.Player('youtube-player', {
+        const player = new (window as any).YT.Player("youtube-player", {
           events: {
-            'onReady': () => {
+            onReady: () => {
               player.seekTo(lastPlayedTime, true);
             },
-            'onStateChange': (event: any) => {
-              if (event.data === (window as any).YT.PlayerState.PAUSED || event.data === (window as any).YT.PlayerState.ENDED) {
+            onStateChange: (event: any) => {
+              if (
+                event.data === (window as any).YT.PlayerState.PAUSED ||
+                event.data === (window as any).YT.PlayerState.ENDED
+              ) {
                 const currentTime = player.getCurrentTime();
-                localStorage.setItem("Datascience_R_01_lastPlayedTime", currentTime.toString());
+                localStorage.setItem(
+                  "Datascience_R_01_lastPlayedTime",
+                  currentTime.toString()
+                );
               }
               if (event.data === (window as any).YT.PlayerState.ENDED) {
                 setIsCompleted(true);
-                localStorage.setItem("Datascience_R_01_isCompleted", JSON.stringify(true));
+                localStorage.setItem(
+                  "Datascience_R_01_isCompleted",
+                  JSON.stringify(true)
+                );
               }
-            }
-          }
+            },
+          },
         });
       }
     };
@@ -70,7 +82,6 @@ function Datascience_R_01() {
     if (videoUrl) {
       createPlayer();
     }
-
   }, [videoUrl]);
 
   if (loading) {
@@ -85,24 +96,25 @@ function Datascience_R_01() {
     <>
       {videoUrl && (
         <div className="video-container">
-        <div className="video-content">
-          <h2>Lecture 1 : Introduction to Data Science with R</h2>
-          {isCompleted && (
-              <p className="completion-message">Complete ✅</p>
-            )}
+          <div className="video-content">
+            <Link to="/introductions/4">
+              <button className="back-button">Go Back</button>
+            </Link>
+            <h2>Lecture 1 : Introduction to Data Science with R</h2>
+            {isCompleted && <p className="completion-message">Complete ✅</p>}
+          </div>
+          <div className="iframe-wrapper">
+            <iframe
+              id="youtube-player"
+              src={videoUrl}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
-        <div className="iframe-wrapper">
-          <iframe
-            id="youtube-player"
-            src={videoUrl}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </div>
       )}
     </>
   );
