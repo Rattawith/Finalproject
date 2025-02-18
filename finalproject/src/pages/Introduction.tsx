@@ -6,8 +6,8 @@ import About_Machinelearning from '../components/About/About_Machinelearning';
 import About_DataScience_R from '../components/About/About_DataScience_R';
 
 function Introduction() {
-  const { id } = useParams<{ id: string }>();
-  const courseId = Number(id);
+  const { id } = useParams<{ id: string }>(); // แปลงค่า id ที่ได้จาก useParams() ซึ่งเป็น string ให้กลายเป็น number 
+  const courseId = Number(id); //แปลงเป็น number
 
   return (
     <div className="container">

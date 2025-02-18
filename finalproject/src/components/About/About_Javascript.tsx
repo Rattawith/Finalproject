@@ -9,7 +9,7 @@ function About_JavaScript() {
       <h2>เนื้อหาภายในคอร์ส</h2>
       <h3>01 HTML - JavaScript </h3>
       <p className="course-duration">1 นาที</p>
-      <Link to="/educations_javascript?courseId=01">Click</Link>
+      <Link to="/educations_javascript/01">Click</Link>
     </div>
   );
 }

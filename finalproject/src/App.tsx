@@ -15,10 +15,10 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/educations_python" element={<Educations_Python />} />
-      <Route path="/educations_javascript" element={<Educations_Javascript />} /> 
-      <Route path="/educations_datascience_r" element={<Educations_DataScience_R />} /> 
-      <Route path="/educations_ml" element={<Educations_Ml />} /> 
+      <Route path="/educations_python/:courseId" element={<Educations_Python />} />
+      <Route path="/educations_javascript/:courseId" element={<Educations_Javascript />} /> 
+      <Route path="/educations/datascience-r/:courseId" element={<Educations_DataScience_R />} /> 
+      <Route path="/educations_ml/:courseId" element={<Educations_Ml />} /> 
       <Route path="/introductions/:id" element={<Introduction />} />
       <Route path="*" element={<Notfound />} />
       {/* <Route path="/api" element={<Introduction />} /> */}

@@ -9,7 +9,7 @@ function About_DataScience_R() {
       <h2>เนื้อหาภายในคอร์ส</h2>
       <h3>01 Introduction to Data Science with R </h3>
       <p className="course-duration">51 นาที</p>
-      <Link to="/educations_datascience_r?courseId=01">Click</Link>
+      <Link to="/educations/datascience-r/01">Click</Link>
     </div>
   );
 }

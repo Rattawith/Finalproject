@@ -1,22 +1,23 @@
-import { useLocation } from 'react-router-dom';
-
+import { useParams } from 'react-router-dom';
 import Header from '../components/Header/Header';
 import Javascript01 from '../components/Pack_Courses/Javascript/Javascript01';
+import Notfound from './Notfound';
 
-import './Educations.css'
-
+import './Educations.css';
 
 function Educations_Javascript() {
-  const location = useLocation();
-  const params = new URLSearchParams(location.search);
-  const courseId = params.get('courseId');
+  const { courseId } = useParams<{ courseId?: string }>(); // ดึงค่าพารามิเตอร์จาก URL
+  const courseIdNumber = courseId ? Number(courseId) : null; // แปลงเป็น number
+
+  if (courseIdNumber !== 1) {
+    return <Notfound />; // ถ้า courseId ไม่ใช่ 1 ให้ไปหน้า Notfound
+  }
 
   return (
     <div className='container'>
       <Header />
       <div className='container-video'></div>
-      {courseId === '01' && <Javascript01 />}
-      {/* เพิ่มเงื่อนไขสำหรับ courseId อื่น ๆ ที่นี่ */}
+      <Javascript01 /> {/* แสดงวิดีโอ JavaScript01 ถ้า courseId ถูกต้อง */}
     </div>
   );
 }

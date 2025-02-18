@@ -70,51 +70,37 @@
 
 
 /* Responsive Styles */
+/* ขนาดเล็ก (มือถือ) */
 @media (max-width: 600px) {
-    .profile-icon {
-        display: none; /* ซ่อนไอคอนโปรไฟล์เมื่อหน้าจอลดขนาด */
+    .header_bar img {
+        width: 100px; /* ลดขนาดโลโก้ */
+        margin-top: 8px;
     }
-
+    .profile-icon {
+        display: none; /* ซ่อนไอคอนโปรไฟล์ */
+    }
     .menu-icon {
-        display: block; /* แสดงเมนูไอคอนเมื่อหน้าจอลดขนาด */
+        display: block; /* แสดงไอคอนเมนู */
+    }
+    .header_bar_center h5 {
+        display: none; /* ซ่อนข้อความ "หลักสูตรทั้งหมด" */
+    }
+    .courses-list {
+        display: block;
     }
 }
 
+/* ขนาดใหญ่ (แท็บเล็ต, เดสก์ท็อป) */
 @media (min-width: 601px) {
     .header_bar img {
-        width: 180px; /* ตั้งค่าความกว้างให้คงที่เพื่อให้ขนาดไม่เล็กเกินไป */
+        width: 180px; /* ขนาดโลโก้ใหญ่ขึ้น */
         margin-top: 8px;
     }
     .profile-icon {
-        display: none; /* แสดงไอคอนโปรไฟล์เมื่อหน้าจอมีขนาดปกติ */
+        display: block; /* แสดงไอคอนโปรไฟล์ */
     }
-
     .menu-icon {
-        display: none; /* ซ่อนไอคอนเมนูในขนาดหน้าจอปกติ */
-    }
-}
-  
-@media (max-width: 600px) {
-    .header_bar_center h5 {
-      display: none; /* ซ่อนหลักสูตรทั้งหมดใน header */
-    }
-  
-    .courses-list {
-      display: block;
+        display: none; /* ซ่อนไอคอนเมนู */
     }
 }
 
-@media (max-width: 600px) {
-    .header_bar img {
-        width: 100px; /* ตั้งค่าความกว้างให้คงที่เพื่อให้ขนาดไม่เล็กเกินไป */
-        margin-top: 8px;
-    }
-
-    .profile-icon {
-        display: none; /* ซ่อนไอคอนโปรไฟล์เมื่อหน้าจอลดขนาด */
-    }
-
-    .menu-icon {
-        display: block; /* แสดงเมนูไอคอนเมื่อหน้าจอลดขนาด */
-    }
-}
