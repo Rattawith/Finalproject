@@ -1,12 +1,12 @@
-import { BrowserRouter } from "react-router-dom";
-import App from "../App";
+// import { BrowserRouter } from "react-router-dom";
+// import App from "../App";
 
-function WrappedApp() {
-  return (
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  );
-}
+// function WrappedApp() {
+//   return (
+//     <BrowserRouter>
+//       <App />
+//     </BrowserRouter>
+//   );
+// }
 
-export default WrappedApp;
+// export default WrappedApp;

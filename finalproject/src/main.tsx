@@ -1,13 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+// import WrappedApp from "./pages/WrappedApp";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
 
 import './index.css'
-import WrappedApp from "./pages/WrappedApp";
 
 
 
   ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-      <WrappedApp></WrappedApp>
+      <BrowserRouter>
+      <App />
+    </BrowserRouter>
     </React.StrictMode>
 );
